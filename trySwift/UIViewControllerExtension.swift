@@ -48,17 +48,19 @@ extension UIViewController: FavoriteDelegate {
 	func favoritePresentation(presentation: Presentation) {
 
 		let defaults = NSUserDefaults.standardUserDefaults()
-		if var arrFavoritedPresentations = defaults.arrayForKey("favoritedPresentations") as? [Presentation] {
+		if var arrFavoritedPresentations = defaults.arrayForKey("favoritedPresentations") as? [Int] {
 
-			if !arrFavoritedPresentations.contains(presentation) {
-				arrFavoritedPresentations.append(presentation)
+			if !arrFavoritedPresentations.contains(presentation.id) {
+				arrFavoritedPresentations.append(presentation.id)
 				defaults.setObject(arrFavoritedPresentations, forKey: "favoritedPresentations")
 			}
 		} else {
 
-			let arrFavoritedPresentations = [presentation]
+			let arrFavoritedPresentations = [presentation.id]
 			defaults.setObject(arrFavoritedPresentations, forKey: "favoritedPresentations")
 		}
+        
+        print("Favorited")
 	}
 }
 

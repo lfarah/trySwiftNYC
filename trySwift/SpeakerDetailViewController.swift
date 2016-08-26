@@ -13,7 +13,7 @@ class SpeakerDetailViewController: UITableViewController {
 	var speaker: Speaker!
 
 	private enum SpeakerDetail: Int {
-		case Header, Bio, Twitter, Favorite
+		case Header, Bio, Twitter
 	}
 
 	override func viewDidLoad() {
@@ -49,14 +49,6 @@ extension SpeakerDetailViewController {
 			let cell = tableView.dequeueReusableCellWithIdentifier(String(TwitterFollowTableViewCell), forIndexPath: indexPath) as! TwitterFollowTableViewCell
 			cell.configure(withUsername: speaker.twitter, delegate: self)
 			return cell
-
-		case .Favorite:
-			let cell = tableView.dequeueReusableCellWithIdentifier(String(FavoriteTableViewCell), forIndexPath: indexPath) as! FavoriteTableViewCell
-
-			let presentation = defaultPresentations.filter {
-				$0.speaker == speaker }
-			cell.configure(withPresentation: presentation.first!, delegate: self)
-			return cell
 		}
 	}
 
@@ -68,7 +60,6 @@ extension SpeakerDetailViewController {
 		tableView.registerNib(UINib(nibName: String(SpeakerTableViewCell), bundle: nil), forCellReuseIdentifier: String(SpeakerTableViewCell))
 		tableView.registerNib(UINib(nibName: String(TextTableViewCell), bundle: nil), forCellReuseIdentifier: String(TextTableViewCell))
 		tableView.registerNib(UINib(nibName: String(TwitterFollowTableViewCell), bundle: nil), forCellReuseIdentifier: String(TwitterFollowTableViewCell))
-		tableView.registerNib(UINib(nibName: String(FavoriteTableViewCell), bundle: nil), forCellReuseIdentifier: String(FavoriteTableViewCell))
 
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableViewAutomaticDimension

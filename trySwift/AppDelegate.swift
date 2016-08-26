@@ -35,12 +35,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		print("======")
 		print("Favorite presentations:")
-		if let presentations = NSUserDefaults.standardUserDefaults().arrayForKey("favoritedPresentations") as? [Presentation] {
-			for presentation in presentations {
+		if let presentations = NSUserDefaults.standardUserDefaults().arrayForKey("favoritedPresentations") as? [Int] {
 
-				print(presentation.speaker)
-			}
-		}
+            for presentation in defaultPresentations {
+                
+                for id in presentations {
+                    
+                    if id == presentation.id {
+                        
+                        print(presentation)
+                        break
+                    }
+                }
+            }
+        }
 		return true
 	}
 
