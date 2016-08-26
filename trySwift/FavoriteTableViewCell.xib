@@ -7,31 +7,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="TwitterFollowTableViewCell" customModule="trySwift" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="FAo-Cr-CAU" customClass="FavoriteTableViewCell" customModule="trySwift" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FAo-Cr-CAU" id="5Ls-uZ-U36">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="glP-AN-MLz">
-                        <rect key="frame" x="13" y="8" width="49" height="26"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fjr-rm-8br">
+                        <rect key="frame" x="13" y="8" width="59" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                        <state key="normal" title="Follow"/>
+                        <state key="normal" title="Favorite"/>
                         <connections>
-                            <action selector="onFollowButtonTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jsS-7r-m9Q"/>
+                            <action selector="onFavoriteButtonTap:" destination="FAo-Cr-CAU" eventType="touchUpInside" id="zyg-8M-Qd2"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="glP-AN-MLz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="9Rm-Vr-yVI"/>
-                    <constraint firstItem="glP-AN-MLz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="TOf-DE-5Zr"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="glP-AN-MLz" secondAttribute="bottom" constant="1.5" id="ct3-4k-yed"/>
+                    <constraint firstItem="fjr-rm-8br" firstAttribute="leading" secondItem="5Ls-uZ-U36" secondAttribute="leadingMargin" constant="5" id="NJP-gT-oGe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fjr-rm-8br" secondAttribute="bottom" constant="1.5" id="Ygi-zv-xck"/>
+                    <constraint firstItem="fjr-rm-8br" firstAttribute="top" secondItem="5Ls-uZ-U36" secondAttribute="topMargin" id="oCN-v1-SMQ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="followButton" destination="glP-AN-MLz" id="0AD-Tt-cs1"/>
+                <outlet property="favoriteButton" destination="fjr-rm-8br" id="If0-aG-xxg"/>
             </connections>
         </tableViewCell>
     </objects>

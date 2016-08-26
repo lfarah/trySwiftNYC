@@ -14,7 +14,7 @@ class SessionDetailsViewController: UITableViewController {
     var presentation: Presentation!
     
     private enum PresentationDetail: Int {
-        case Header, SpeakerInfo, Summary, Twitter
+        case Header, SpeakerInfo, Summary, Twitter, Favorite
     }
     
     override func viewDidLoad() {
@@ -54,6 +54,11 @@ extension SessionDetailsViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier(String(TwitterFollowTableViewCell), forIndexPath: indexPath) as! TwitterFollowTableViewCell
             cell.configure(withUsername: presentation.speaker!.twitter, delegate: self)
             return cell
+            
+        case .Favorite:
+            let cell = tableView.dequeueReusableCellWithIdentifier(String(FavoriteTableViewCell), forIndexPath: indexPath) as! FavoriteTableViewCell
+            cell.configure(withPresentation: presentation, delegate: self)
+            return cell
         }
     }
 }
@@ -65,7 +70,8 @@ extension SessionDetailsViewController {
         tableView.registerNib(UINib(nibName: String(SpeakerTableViewCell), bundle: nil), forCellReuseIdentifier: String(SpeakerTableViewCell))
         tableView.registerNib(UINib(nibName: String(TextTableViewCell), bundle: nil), forCellReuseIdentifier: String(TextTableViewCell))
         tableView.registerNib(UINib(nibName: String(TwitterFollowTableViewCell), bundle: nil), forCellReuseIdentifier: String(TwitterFollowTableViewCell))
-        
+        tableView.registerNib(UINib(nibName: String(FavoriteTableViewCell), bundle: nil), forCellReuseIdentifier: String(FavoriteTableViewCell))
+
         tableView.estimatedRowHeight = 83
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.separatorStyle = .None
